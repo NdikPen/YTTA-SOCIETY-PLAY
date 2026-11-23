@@ -17,12 +17,6 @@
       --text-main: #f5f5f7;
       --text-muted: #9898a6;
       --border: rgba(255, 255, 255, 0.08);
-      --shell-max: 100%;
-      --main-pad-x: 16px;
-      --main-pad-y: 16px;
-      --footer-pad-x: 16px;
-      --vol-width: 100px;
-      --vinyl-size: 210px;
     }
 
     * {
@@ -47,7 +41,7 @@
       position: sticky;
       top: 0;
       z-index: 15;
-      padding: 13px var(--main-pad-x);
+      padding: 14px 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -55,16 +49,6 @@
       background: rgba(14, 14, 18, 0.88);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
-    }
-
-    .header-inner {
-      max-width: var(--shell-max);
-      width: 100%;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
     }
 
     .header-left {
@@ -135,8 +119,8 @@
     /* Layout Shell + Sidebar */
     .app-shell {
       display: flex;
-      min-height: calc(100vh - 65px);
-      max-width: var(--shell-max);
+      min-height: calc(100vh - 67px);
+      max-width: 1040px;
       margin: 0 auto;
     }
 
@@ -233,11 +217,26 @@
       line-height: 1.45;
     }
 
+    @media (min-width: 768px) {
+      .menu-toggle-btn,
+      .sidebar-backdrop {
+        display: none !important;
+      }
+      aside.sidebar {
+        position: sticky;
+        top: 67px;
+        height: calc(100vh - 67px);
+        transform: none;
+        flex-shrink: 0;
+        padding-bottom: 190px;
+      }
+    }
+
     /* Main Content */
     main {
       flex: 1;
       min-width: 0;
-      padding: var(--main-pad-y) var(--main-pad-x);
+      padding: 16px 18px;
     }
 
     .view-panel {
@@ -255,12 +254,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
       gap: 8px;
     }
 
     .view-panel-header h2 {
-      font-size: 1.02rem;
+      font-size: 1rem;
       color: #ffffff;
     }
 
@@ -273,7 +271,7 @@
     /* Playlist Cards Grid */
     .playlist-cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       gap: 10px;
     }
 
@@ -743,7 +741,7 @@
       z-index: 20;
       background: rgba(18, 18, 23, 0.94);
       backdrop-filter: blur(18px);
-      padding: 10px var(--footer-pad-x) 14px;
+      padding: 10px 18px 14px;
       border-top: 1px solid rgba(255, 119, 0, 0.25);
       box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.7);
       display: flex;
@@ -752,7 +750,7 @@
     }
 
     .footer-inner {
-      max-width: var(--shell-max);
+      max-width: 1040px;
       width: 100%;
       margin: 0 auto;
       display: flex;
@@ -835,7 +833,7 @@
     .controls {
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
       flex-shrink: 0;
     }
 
@@ -870,8 +868,8 @@
     }
 
     .nav-btn {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       background-color: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -890,8 +888,8 @@
     }
 
     .main-play-btn {
-      width: 44px;
-      height: 44px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
       background: linear-gradient(135deg, #ff922b 0%, #e8590c 100%);
       border: none;
@@ -924,7 +922,7 @@
     }
 
     .vol-bar {
-      width: var(--vol-width);
+      width: 110px;
     }
 
     /* Spotify-Style Now Playing Pop-Up */
@@ -953,7 +951,7 @@
     }
 
     .popup-inner {
-      max-width: 500px;
+      max-width: 480px;
       width: 100%;
       height: 100%;
       margin: 0 auto;
@@ -961,20 +959,6 @@
       flex-direction: column;
       justify-content: space-between;
       gap: 20px;
-    }
-
-    .popup-body {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .popup-side {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
     }
 
     .popup-top {
@@ -1006,15 +990,15 @@
 
     .popup-art-stage {
       flex: 1;
-      min-height: 210px;
+      min-height: 220px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .vinyl-disc {
-      width: var(--vinyl-size);
-      height: var(--vinyl-size);
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       background:
         radial-gradient(circle at center, #141418 0 18%, #ff7700 18.5% 20%, #17171c 21% 42%, #23232b 43% 44%, #141418 45% 68%, #23232b 69% 70%, #121216 71% 100%);
@@ -1177,190 +1161,26 @@
       width: 16px;
       height: 16px;
     }
-
-    /* =========================================
-       LAPTOP / TABLET LANDSCAPE (640px - 1023px)
-       ========================================= */
-    @media (min-width: 640px) {
-      :root {
-        --shell-max: 960px;
-        --main-pad-x: 20px;
-        --main-pad-y: 18px;
-        --footer-pad-x: 20px;
-        --vol-width: 130px;
-        --vinyl-size: 230px;
-      }
-
-      .playlist-cards-grid {
-        grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
-        gap: 12px;
-      }
-
-      .track-card {
-        padding: 12px 16px;
-      }
-
-      .now-title {
-        font-size: 0.95rem;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .menu-toggle-btn,
-      .sidebar-backdrop {
-        display: none !important;
-      }
-
-      aside.sidebar {
-        position: sticky;
-        top: 65px;
-        height: calc(100vh - 65px);
-        transform: none;
-        flex-shrink: 0;
-        padding-bottom: 190px;
-      }
-    }
-
-    /* =========================================
-       PC / DESKTOP LAYAR LEBAR (>= 1024px)
-       ========================================= */
-    @media (min-width: 1024px) {
-      :root {
-        --shell-max: 1240px;
-        --main-pad-x: 28px;
-        --main-pad-y: 22px;
-        --footer-pad-x: 28px;
-        --vol-width: 165px;
-        --vinyl-size: 270px;
-      }
-
-      body {
-        padding-bottom: 165px;
-      }
-
-      aside.sidebar {
-        width: 260px;
-        padding: 24px 16px 175px;
-      }
-
-      .nav-item {
-        padding: 12px 16px;
-        font-size: 0.92rem;
-      }
-
-      .view-panel {
-        padding: 18px 20px;
-        border-radius: 16px;
-        margin-bottom: 18px;
-      }
-
-      .view-panel-header h2 {
-        font-size: 1.12rem;
-      }
-
-      .playlist-cards-grid {
-        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-        gap: 14px;
-      }
-
-      .pl-card {
-        padding: 15px 16px;
-      }
-
-      .playlist {
-        gap: 10px;
-      }
-
-      .track-card {
-        padding: 13px 18px;
-        border-radius: 14px;
-      }
-
-      .track-title {
-        font-size: 0.96rem;
-      }
-
-      .track-meta,
-      .track-duration {
-        font-size: 0.78rem;
-      }
-
-      .card-play-btn,
-      .add-pl-btn {
-        width: 36px;
-        height: 36px;
-      }
-
-      footer {
-        padding: 12px var(--footer-pad-x) 14px;
-      }
-
-      .controls {
-        gap: 10px;
-      }
-
-      .nav-btn {
-        width: 40px;
-        height: 40px;
-      }
-
-      .main-play-btn {
-        width: 48px;
-        height: 48px;
-      }
-
-      .popup-inner {
-        max-width: 920px;
-      }
-
-      .popup-body {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 44px;
-      }
-
-      .popup-art-stage {
-        flex: 0 0 320px;
-        min-height: 320px;
-      }
-
-      .popup-side {
-        flex: 1;
-        min-width: 0;
-        gap: 22px;
-      }
-
-      .popup-title {
-        font-size: 1.9rem;
-      }
-
-      .popup-artist {
-        font-size: 1.02rem;
-      }
-    }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="header-inner">
-      <div class="header-left">
-        <button id="menu-toggle-btn" class="menu-toggle-btn" aria-label="Buka Sidebar">
-          <svg class="icon-svg" viewBox="0 0 24 24">
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-          </svg>
-        </button>
-        <div class="brand">
-          <div class="brand-badge">YT</div>
-          <div class="brand-text">
-            <h1>YTTA SOCIETY</h1>
-            <p id="header-section-label">Home</p>
-          </div>
+    <div class="header-left">
+      <button id="menu-toggle-btn" class="menu-toggle-btn" aria-label="Buka Sidebar">
+        <svg class="icon-svg" viewBox="0 0 24 24">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+      <div class="brand">
+        <div class="brand-badge">YT</div>
+        <div class="brand-text">
+          <h1>YTTA SOCIETY</h1>
+          <p id="header-section-label">Home</p>
         </div>
       </div>
-      <div id="track-count" class="count-pill">0 Lagu</div>
     </div>
+    <div id="track-count" class="count-pill">0 Lagu</div>
   </header>
 
   <div id="sidebar-backdrop" class="sidebar-backdrop"></div>
@@ -1586,81 +1406,77 @@
         <span id="popup-track-pos" class="count-pill">1 / 1</span>
       </div>
 
-      <div class="popup-body">
-        <div class="popup-art-stage">
-          <div id="vinyl-disc" class="vinyl-disc">
-            <div class="vinyl-center">YTTA</div>
-          </div>
+      <div class="popup-art-stage">
+        <div id="vinyl-disc" class="vinyl-disc">
+          <div class="vinyl-center">YTTA</div>
         </div>
+      </div>
 
-        <div class="popup-side">
-          <div class="popup-meta">
-            <div id="popup-title" class="popup-title">Belum ada lagu</div>
-            <div id="popup-artist" class="popup-artist">YTTA SOCIETY</div>
-          </div>
+      <div class="popup-meta">
+        <div id="popup-title" class="popup-title">Belum ada lagu</div>
+        <div id="popup-artist" class="popup-artist">YTTA SOCIETY</div>
+      </div>
 
-          <div class="popup-seek-group">
-            <input
-              id="popup-seek-bar"
-              class="range-slider popup-seek-bar"
-              type="range"
-              min="0"
-              max="100"
-              value="0"
-              step="0.1"
-            />
-            <div class="popup-time-row">
-              <span id="popup-current-time">00:00</span>
-              <span id="popup-total-duration">00:00</span>
-            </div>
-          </div>
-
-          <div class="popup-controls">
-            <button id="popup-shuffle-btn" class="mini-btn" aria-label="Acak Lagu" title="Shuffle">
-              <svg class="icon-svg" viewBox="0 0 24 24">
-                <path d="M10.59 9.17 5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/>
-              </svg>
-            </button>
-            <button id="popup-prev-btn" class="popup-nav-btn" aria-label="Lagu Sebelumnya">
-              <svg class="icon-svg" viewBox="0 0 24 24">
-                <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/>
-              </svg>
-            </button>
-            <button id="popup-toggle-btn" class="popup-play-btn" aria-label="Putar atau Jeda">
-              <svg class="icon-svg" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </button>
-            <button id="popup-next-btn" class="popup-nav-btn" aria-label="Lagu Selanjutnya">
-              <svg class="icon-svg" viewBox="0 0 24 24">
-                <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
-              </svg>
-            </button>
-            <button id="popup-repeat-btn" class="mini-btn" aria-label="Mode Ulang" title="Repeat">
-              <svg class="icon-svg" viewBox="0 0 24 24">
-                <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/>
-              </svg>
-            </button>
-          </div>
-
-          <div class="popup-volume-box">
-            <button id="popup-mute-btn" class="mini-btn" aria-label="Bisukan Suara" title="Mute">
-              <svg class="icon-svg" viewBox="0 0 24 24">
-                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-              </svg>
-            </button>
-            <input
-              id="popup-volume-bar"
-              class="range-slider vol-bar"
-              type="range"
-              min="0"
-              max="1"
-              step="0.05"
-              value="1"
-              aria-label="Volume Pop-Up"
-            />
-          </div>
+      <div class="popup-seek-group">
+        <input
+          id="popup-seek-bar"
+          class="range-slider popup-seek-bar"
+          type="range"
+          min="0"
+          max="100"
+          value="0"
+          step="0.1"
+        />
+        <div class="popup-time-row">
+          <span id="popup-current-time">00:00</span>
+          <span id="popup-total-duration">00:00</span>
         </div>
+      </div>
+
+      <div class="popup-controls">
+        <button id="popup-shuffle-btn" class="mini-btn" aria-label="Acak Lagu" title="Shuffle">
+          <svg class="icon-svg" viewBox="0 0 24 24">
+            <path d="M10.59 9.17 5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/>
+          </svg>
+        </button>
+        <button id="popup-prev-btn" class="popup-nav-btn" aria-label="Lagu Sebelumnya">
+          <svg class="icon-svg" viewBox="0 0 24 24">
+            <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/>
+          </svg>
+        </button>
+        <button id="popup-toggle-btn" class="popup-play-btn" aria-label="Putar atau Jeda">
+          <svg class="icon-svg" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
+        <button id="popup-next-btn" class="popup-nav-btn" aria-label="Lagu Selanjutnya">
+          <svg class="icon-svg" viewBox="0 0 24 24">
+            <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+          </svg>
+        </button>
+        <button id="popup-repeat-btn" class="mini-btn" aria-label="Mode Ulang" title="Repeat">
+          <svg class="icon-svg" viewBox="0 0 24 24">
+            <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="popup-volume-box">
+        <button id="popup-mute-btn" class="mini-btn" aria-label="Bisukan Suara" title="Mute">
+          <svg class="icon-svg" viewBox="0 0 24 24">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+          </svg>
+        </button>
+        <input
+          id="popup-volume-bar"
+          class="range-slider vol-bar"
+          type="range"
+          min="0"
+          max="1"
+          step="0.05"
+          value="1"
+          aria-label="Volume Pop-Up"
+        />
       </div>
     </div>
   </div>
