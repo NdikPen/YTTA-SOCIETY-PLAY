@@ -8,20 +8,27 @@
   },
   {
     "id": 2,
+    "title": "YTTA • DJ BAGAIKAN LANGIT",
+    "artist": "YTTA SOCIETY",
+    "duration": "Audio",
+    "src": "musik/YTTA%20%E2%80%A2%20DJ%20BAGAIKAN%20LANGIT.mp3"
+  },
+  {
+    "id": 3,
     "title": "YTTA • DJ DEARGOD",
     "artist": "YTTA SOCIETY",
     "duration": "Audio",
     "src": "musik/YTTA%20%E2%80%A2%20DJ%20DEARGOD.mp3"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "YTTA • DJ DI CARI ONTY ONTY",
     "artist": "YTTA SOCIETY",
     "duration": "Audio",
     "src": "musik/YTTA%20%E2%80%A2%20DJ%20DI%20CARI%20ONTY%20ONTY.mp3"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "YTTA • DJ JAUH KAU PERGI",
     "artist": "YTTA SOCIETY",
     "duration": "Audio",
